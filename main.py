@@ -31,6 +31,32 @@ class Game:
     def draw(self):
         self.win.fill((0,0,0))# set background color
         
+        # draw vertical lines
+        for line in range(800):
+            if line % 10 == 0:
+                pygame.draw.rect(
+                    self.win,
+                    (30,30,30),
+                    (
+                        line,
+                        0,
+                        1,
+                        self.win_height
+                    ))
+
+        # draw horizontal lines
+        for line in range(600):
+            if line % 10 == 0:
+                pygame.draw.rect(
+                    self.win,
+                    (30,30,30),
+                    (
+                        0,
+                        line,
+                        self.win_width,
+                        1
+                    ))
+        
         # draw the snake
         for tail in self.snake.tails:
             pygame.draw.rect(
